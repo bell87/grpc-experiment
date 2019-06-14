@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package Jokes;
+
+service Jokes {
+    rpc GetJoke (JokesRequest) returns (JokesResponse) {};
+    rpc AddJoke (AddJokeRequest) returns (AddJokeResponse) {};
+}
+
+message JokesRequest {
+    string keyword = 1;
+}
+
+message JokesResponse {
+    string joke = 1;
+}
+
+message AddJokeRequest {
+    string keyword = 1;
+    string question = 2;
+    string punchline = 3;
+}
+
+message AddJokeResponse {
+    string message = 1;
+}
