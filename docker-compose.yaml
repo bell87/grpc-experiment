@@ -1,0 +1,23 @@
+version: "3"
+services:
+  client1:
+    build: .
+    container_name: client1
+    environment:
+      SERVICE_NAME: client1
+    volumes:
+      - ./:/var/www/html/
+    networks:
+      - grpc-network
+  server1:
+    image: andyblp/node-grpc-test:latest
+    container_name: server1
+    environment:
+      SERVICE_NAME: server1
+    networks:
+      - grpc-network
+
+#Docker Networks
+networks:
+  grpc-network:
+    driver: bridge

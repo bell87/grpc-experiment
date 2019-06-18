@@ -6,7 +6,7 @@ $options = getopt('i:');
 
 echo "Adding a joke...? \n\n";
 
-$client = new Jokes\JokesClient('localhost:50051', [
+$client = new Jokes\JokesClient('server1:50051', [
     'credentials' => Grpc\ChannelCredentials::createInsecure()
 ]);
 

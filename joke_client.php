@@ -8,7 +8,9 @@ echo "Bad joke coming up... \n\n";
 
 $instrument = isset($options['i']) ? $options['i'] : '';
 
-$client = new Jokes\JokesClient('localhost:50051', [
+$DOCKER_HOST = $_ENV['DOCKER_HOST'];
+
+$client = new Jokes\JokesClient("server1:50051", [
     'credentials' => Grpc\ChannelCredentials::createInsecure()
 ]);
 
